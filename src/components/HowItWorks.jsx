@@ -21,7 +21,8 @@ export default function HowItWorks() {
           {/* Steps: stacked on mobile, grid on tablet, single vertical timeline on desktop */}
           <ol className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-1">
             {STEPS.map((step) => (
-              <li key={step.num} className="relative border-l-2 border-primary-deep/30 pl-6">
+              <li key={step.num} className="relative pl-6">
+                { step.num !== '4' && <span className="absolute -left-[2.5px] top-8 bottom-0 h-full w-0.5 rounded-full bg-primary-deep/30" />}
                 <span className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-primary-deep" />
                 <p className="text-2xl font-bold text-primary-deep">
                   {step.num} - {step.title}
