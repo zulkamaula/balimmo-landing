@@ -81,7 +81,7 @@ export default function SearchBar({ variant = 'hero' }) {
       value={state.name}
       onChange={(e) => patch({ name: e.target.value })}
       placeholder={isVilla ? 'Type villa name...' : 'Type land name...'}
-      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-accent"
+      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-accent text-primary"
     />
   )
 

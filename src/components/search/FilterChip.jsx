@@ -23,15 +23,15 @@ export default function FilterChip({
       <button
         type="button"
         onClick={() => onToggle(chipKey)}
-        className={`flex min-w-[120px] items-center justify-between gap-3 rounded-xl border px-4 py-2.5 text-left transition-colors ${
-          isOpen ? 'border-accent bg-accent/5' : 'border-gray-200 bg-white hover:border-gray-300'
+        className={`flex min-w-[120px] max-w-[180px] items-center justify-between gap-3 rounded-xl border px-4 py-2.5 text-left transition-colors ${
+          isOpen ? 'border-accent bg-accent/20 backdrop-blur-sm' : 'border-gray-200 bg-white hover:border-gray-300'
         }`}
       >
-        <span className="flex flex-col">
-          <span className="text-[11px] font-semibold uppercase tracking-wide text-primary/50">
+        <span className="flex flex-col overflow-hidden">
+          <span className={`text-[11px] font-semibold uppercase tracking-wide ${isOpen ? 'text-white/50' : 'text-primary/50'}`}>
             {label}
           </span>
-          <span className="text-sm font-semibold text-primary">{value}</span>
+          <span className={`text-sm font-semibold truncate ${isOpen ? 'text-white' : 'text-primary'}`}>{value}</span>
         </span>
         <svg
           width="14"
@@ -42,7 +42,7 @@ export default function FilterChip({
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`shrink-0 text-primary/50 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`shrink-0 transition-transform ${isOpen ? 'rotate-180 text-white' : 'text-primary/50'}`}
         >
           <path d="m6 9 6 6 6-6" />
         </svg>
