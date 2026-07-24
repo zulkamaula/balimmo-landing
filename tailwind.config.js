@@ -15,8 +15,9 @@ export default {
           muted: '#4b645f',
         },
         accent: {
-          DEFAULT: '#eba859', // gold used for prices / highlights
-          alt: '#FFA00A',
+          // DEFAULT: '#eba859', // gold used for prices / highlights
+          DEFAULT: '#FFA00A', // gold used for prices / highlights
+          alt: '#eba859',
         },
       },
       fontFamily: {

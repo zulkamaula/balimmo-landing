@@ -13,7 +13,7 @@ export default function Navbar() {
   const { docked } = useSearch()
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
+    <>
       <div className="container-x flex items-center justify-between py-3">
         {/* Logo */}
         <a href="#top" className="flex items-center" aria-label="Balimmo home">
@@ -71,7 +71,7 @@ export default function Navbar() {
 
       {/* Mobile menu panel */}
       {open && (
-        <nav className="border-t border-gray-100 bg-white lg:hidden">
+        <nav className="text-center border-t border-gray-100 bg-white lg:hidden">
           <ul className="container-x flex flex-col py-2">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
@@ -87,6 +87,6 @@ export default function Navbar() {
           </ul>
         </nav>
       )}
-    </header>
+    </>
   )
 }

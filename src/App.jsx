@@ -7,13 +7,16 @@ import HowItWorks from './components/HowItWorks.jsx'
 import GroupServices from './components/GroupServices.jsx'
 import ContactSection from './components/ContactSection.jsx'
 import Footer from './components/Footer.jsx'
+import FilterSheet from './components/FilterSheet.jsx'
 import { SearchProvider } from './context/SearchContext.jsx'
 
 export default function App() {
   return (
     <SearchProvider>
       <div className="min-h-screen bg-white">
+        <header className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
         <Navbar />
+        </header>
         <main>
           <Hero />
           <InvestRegions />
@@ -22,6 +25,7 @@ export default function App() {
           <HowItWorks />
           <GroupServices />
           <ContactSection />
+          <FilterSheet />
         </main>
         <Footer />
       </div>

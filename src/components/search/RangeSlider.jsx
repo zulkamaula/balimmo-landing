@@ -28,7 +28,7 @@ export default function RangeSlider({
   }
 
   return (
-    <div className="pt-6">
+    <div className="lg:pt-4 pt-0">
       {/* Track */}
       <div className="relative h-6 select-none">
         {/* Base bar */}

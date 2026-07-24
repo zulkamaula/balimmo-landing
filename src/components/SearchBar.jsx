@@ -1,23 +1,22 @@
-import { useEffect, useRef, useState } from 'react'
-import FilterChip from './search/FilterChip.jsx'
-import RangeSlider from './search/RangeSlider.jsx'
-import useClickOutside from '../hooks/useClickOutside.js'
+import { useState } from 'react'
 import { useSearch } from '../context/SearchContext.jsx'
 import {
   AREAS,
-  VILLA_OWNERSHIP,
   LAND_OWNERSHIP,
-  MAX_VILLA_BED,
-  VILLA_BED_STEP,
-  MAX_VILLA_PRICE_USD,
-  VILLA_PRICE_STEP,
-  MAX_LAND_SIZE_ARE,
+  LAND_PRICE_STEP,
   LAND_SIZE_STEP,
   MAX_LAND_PRICE_IDR,
-  LAND_PRICE_STEP,
-  formatUsd,
+  MAX_LAND_SIZE_ARE,
+  MAX_VILLA_BED,
+  MAX_VILLA_PRICE_USD,
+  VILLA_BED_STEP,
+  VILLA_OWNERSHIP,
+  VILLA_PRICE_STEP,
   formatIdr,
+  formatUsd,
 } from '../data/searchOptions.js'
+import FilterChip from './search/FilterChip.jsx'
+import RangeSlider from './search/RangeSlider.jsx'
 
 // Small reusable checkbox-list body (shared by desktop popover + mobile sheet).
 function CheckboxList({ options, selected, onToggle, suffix = '' }) {
@@ -41,9 +40,8 @@ function CheckboxList({ options, selected, onToggle, suffix = '' }) {
 
 export default function SearchBar({ variant = 'hero' }) {
   // Filter state is shared across instances (hero + docked navbar) via context.
-  const { tab, setTab, villa, setVilla, land, setLand } = useSearch()
+  const { tab, setTab, villa, setVilla, land, setLand, openSheet } = useSearch()
   const [openKey, setOpenKey] = useState(null) // which desktop popover is open (local per instance)
-  const [sheetOpen, setSheetOpen] = useState(false)
 
   const isNavbar = variant === 'navbar'
   const isVilla = tab === 'villa'
@@ -60,17 +58,6 @@ export default function SearchBar({ variant = 'hero' }) {
 
   const toggleChip = (key) => setOpenKey((k) => (k === key ? null : key))
   const closeChip = () => setOpenKey(null)
-
-  // Lock body scroll while the mobile filter sheet is open.
-  useEffect(() => {
-    document.body.style.overflow = sheetOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [sheetOpen])
-
-  const sheetRef = useRef(null)
-  useClickOutside(sheetRef, () => setSheetOpen(false), sheetOpen)
 
   // ---- chip value summaries ----
   const nameValue = state.name.trim() || 'Any'
@@ -169,12 +156,12 @@ export default function SearchBar({ variant = 'hero' }) {
           : 'mx-auto w-full max-w-5xl rounded-2xl bg-transparent'
       }
     >
-      <div className={isNavbar ? 'lg:flex lg:items-center lg:gap-3' : ''}>
+      <div className={isNavbar ? 'flex items-center gap-3 justify-between' : 'lg:block flex gap-3 justify-between'}>
         {/* Villa / Land segmented toggle */}
         <div
           className={
             isNavbar
-              ? 'mb-3 flex justify-center lg:mb-0 lg:shrink-0 lg:justify-start'
+              ? 'mb-0 flex justify-center lg:mb-0 lg:shrink-0 lg:justify-start'
               : 'mb-4 flex justify-center lg:justify-start'
           }
         >
@@ -197,7 +184,7 @@ export default function SearchBar({ variant = 'hero' }) {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className={isNavbar ? 'lg:flex-1' : ''}>
+        <form onSubmit={handleSubmit} className={isNavbar ? 'flex-1 max-w-xs lg:max-w-full' : 'flex-1 max-w-xs lg:max-w-full'}>
         {/* ===== Desktop: filter-chip bar ===== */}
         <div className="hidden flex-wrap items-stretch gap-2 lg:flex">
           <FilterChip chipKey="name" label="Name" value={nameValue} isOpen={openKey === 'name'} onToggle={toggleChip} onClose={closeChip} onClear={() => patch({ name: '' })}>
@@ -237,7 +224,7 @@ export default function SearchBar({ variant = 'hero' }) {
         {/* ===== Mobile: single Search button opens the filter sheet ===== */}
         <button
           type="button"
-          onClick={() => setSheetOpen(true)}
+          onClick={openSheet}
           className="btn-solid flex w-full items-center justify-center gap-2 lg:hidden"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -248,79 +235,6 @@ export default function SearchBar({ variant = 'hero' }) {
         </button>
         </form>
       </div>
-
-      {/* ===== Mobile filter sheet ===== */}
-      {sheetOpen && (
-        <div className="fixed inset-0 z-[60] lg:hidden">
-          <div className="absolute inset-0 bg-black/50" />
-          <div
-            ref={sheetRef}
-            className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-white shadow-2xl"
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
-              <span className="text-lg font-bold text-primary">Filters</span>
-              <button
-                type="button"
-                onClick={() => setSheetOpen(false)}
-                aria-label="Close filters"
-                className="rounded p-1 text-primary/60 hover:text-primary"
-              >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M18 6 6 18M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Scrollable body: all groups stacked */}
-            <div className="flex-1 space-y-6 overflow-y-auto px-5 py-5">
-              {/* Tab toggle inside sheet too */}
-              <div className="flex rounded-full bg-gray-100 p-1">
-                {['villa', 'land'].map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => setTab(t)}
-                    className={`flex-1 rounded-full px-4 py-2 text-sm font-semibold capitalize transition-colors ${
-                      tab === t ? 'bg-primary text-white' : 'text-primary'
-                    }`}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-
-              <div>
-                <p className="mb-2 text-sm font-semibold text-primary">Name</p>
-                {nameBody}
-              </div>
-              <div>
-                <p className="mb-2 text-sm font-semibold text-primary">{isVilla ? 'Bedrooms' : 'Size (are)'}</p>
-                {rangeBody}
-              </div>
-              <div>
-                <p className="mb-2 text-sm font-semibold text-primary">Price ({isVilla ? 'USD' : 'IDR'})</p>
-                {priceBody}
-              </div>
-              <div>
-                <p className="mb-2 text-sm font-semibold text-primary">Area</p>
-                {areaBody}
-              </div>
-              <div>
-                <p className="mb-2 text-sm font-semibold text-primary">Type</p>
-                {ownershipBody}
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="border-t border-gray-100 px-5 py-4">
-              <button type="button" onClick={() => setSheetOpen(false)} className="btn-solid w-full">
-                {isVilla ? 'Find my villa' : 'Find my land'}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

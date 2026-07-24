@@ -40,6 +40,10 @@ export function SearchProvider({ children }) {
   const [docked, setDocked] = useState(false)
   const [sentinel, setSentinel] = useState(null) // callback-ref target from Hero
 
+  const [sheetOpen, setSheetOpen] = useState(false)
+  const openSheet = () => setSheetOpen(true)
+  const sheetClose = () => setSheetOpen(false)
+
   useEffect(() => {
     if (!sentinel || typeof IntersectionObserver === 'undefined') return undefined
     const observer = new IntersectionObserver(
@@ -54,8 +58,8 @@ export function SearchProvider({ children }) {
   }, [sentinel])
 
   const value = useMemo(
-    () => ({ tab, setTab, villa, setVilla, land, setLand, docked, setSentinel }),
-    [tab, villa, land, docked],
+    () => ({ tab, setTab, villa, setVilla, land, setLand, docked, setSentinel, sheetOpen, openSheet, sheetClose }),
+    [tab, villa, land, docked, sheetOpen],
   )
 
   return <SearchContext.Provider value={value}>{children}</SearchContext.Provider>
