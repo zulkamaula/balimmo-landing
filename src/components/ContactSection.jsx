@@ -55,11 +55,16 @@ export default function ContactSection() {
 
               <div>
                 <label className="mb-1 block text-sm font-semibold text-primary">Phone</label>
-                <input
-                  type="tel"
-                  placeholder="+62 ..."
-                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-accent"
-                />
+                <div className="flex items-stretch text-sm">
+                  <div className="h-100 flex items-center rounded-l-lg bg-gray-50 border border-gray-200 px-2 text-primary/50">
+                    +62
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="899 ..."
+                    className="w-full rounded-r-lg border border-gray-200 border-l-0 px-2 py-2.5 outline-none focus:border-accent"
+                  />
+                </div>
               </div>
 
               <div>
