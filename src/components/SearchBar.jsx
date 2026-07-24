@@ -156,13 +156,13 @@ export default function SearchBar({ variant = 'hero' }) {
           : 'mx-auto w-full max-w-5xl rounded-2xl bg-transparent'
       }
     >
-      <div className={isNavbar ? 'flex items-center gap-3 justify-between' : 'lg:block flex gap-3 justify-between'}>
+      <div className={isNavbar ? 'flex items-center lg:gap-3 justify-center' : 'lg:block flex justify-center'}>
         {/* Villa / Land segmented toggle */}
         <div
           className={
             isNavbar
-              ? 'mb-0 flex justify-center lg:mb-0 lg:shrink-0 lg:justify-start'
-              : 'mb-4 flex justify-center lg:justify-start'
+              ? 'mb-0 hidden lg:flex justify-center lg:mb-0 lg:shrink-0 lg:justify-start'
+              : 'mb-4 hidden lg:flex justify-center lg:justify-start'
           }
         >
           <div className="inline-flex rounded-full bg-gray-100 p-1">
@@ -184,7 +184,7 @@ export default function SearchBar({ variant = 'hero' }) {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className={isNavbar ? 'flex-1 max-w-xs lg:max-w-full' : 'flex-1 max-w-xs lg:max-w-full'}>
+        <form onSubmit={handleSubmit} className="flex-1 md:max-w-lg max-w-xs lg:max-w-full">
         {/* ===== Desktop: filter-chip bar ===== */}
         <div className="hidden flex-wrap items-stretch gap-2 lg:flex">
           <FilterChip chipKey="name" label="Name" value={nameValue} isOpen={openKey === 'name'} onToggle={toggleChip} onClose={closeChip} onClear={() => patch({ name: '' })}>
