@@ -49,7 +49,7 @@ export default function WhyChoose() {
           </div>
 
           <img
-            src="/landing/assets/img/other/contact-us-thumb.avif"
+            src="landing/assets/img/other/contact-us-thumb.avif"
             alt="Why choose Balimmo"
             className="h-auto w-full rounded-lg object-cover"
           />

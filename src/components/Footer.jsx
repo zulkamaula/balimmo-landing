@@ -20,14 +20,14 @@ export default function Footer() {
           {/* About + contact */}
           <div className="lg:col-span-2">
             <img
-              src="/landing/assets/img/logo/logo-balimmo-white.png"
+              src="landing/assets/img/logo/logo-balimmo-white.png"
               alt="Balimmo"
               className="w-[180px]"
             />
             <div className="mt-4 flex flex-wrap items-center gap-4">
-              <img src="/landing/assets/img/logo/logo-balimmo-properties.png" alt="Balimmo Properties" className="w-[130px]" />
-              <img src="/landing/assets/img/logo/logo-balimmo-construction.png" alt="Balimmo Construction" className="w-[130px]" />
-              <img src="/landing/assets/img/logo/logo-balimmo-management.png" alt="Balimmo Management" className="w-[130px]" />
+              <img src="landing/assets/img/logo/logo-balimmo-properties.png" alt="Balimmo Properties" className="w-[130px]" />
+              <img src="landing/assets/img/logo/logo-balimmo-construction.png" alt="Balimmo Construction" className="w-[130px]" />
+              <img src="landing/assets/img/logo/logo-balimmo-management.png" alt="Balimmo Management" className="w-[130px]" />
             </div>
             <p className="mt-5 max-w-md text-sm text-white/70">
               Discover leading properties and secure your dream home with us. Expert guidance and
@@ -86,7 +86,7 @@ export default function Footer() {
               <h3 className="mb-2 text-sm font-semibold text-white">
                 Asosiasi Real Estate Broker Indonesia
               </h3>
-              <img src="/landing/assets/img/logo/logo-arebi.png" alt="AREBI" className="w-16" />
+              <img src="landing/assets/img/logo/logo-arebi.png" alt="AREBI" className="w-16" />
               <p className="mt-2 text-xs text-white/60">Member Number: 2025000055A</p>
             </div>
           </div>

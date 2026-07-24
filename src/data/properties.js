@@ -15,7 +15,7 @@ export const featuredProperties = [
     landSize: 450,
     legalStatus: 'Leasehold',
     leaseYearsLeft: 27,
-    image: '/landing/assets/img/other/best-selling-thumb.png',
+    image: 'landing/assets/img/other/best-selling-thumb.png',
     exclusive: true,
   },
   {
@@ -30,7 +30,7 @@ export const featuredProperties = [
     landSize: 300,
     legalStatus: 'Freehold',
     leaseYearsLeft: null,
-    image: '/landing/assets/img/other/best-selling-thumb2.png',
+    image: 'landing/assets/img/other/best-selling-thumb2.png',
     exclusive: true,
   },
   {
@@ -45,7 +45,7 @@ export const featuredProperties = [
     landSize: 520,
     legalStatus: 'Leasehold',
     leaseYearsLeft: 25,
-    image: '/landing/assets/img/other/best-selling-thumb3.png',
+    image: 'landing/assets/img/other/best-selling-thumb3.png',
     exclusive: false,
   },
   {
@@ -60,7 +60,7 @@ export const featuredProperties = [
     landSize: 400,
     legalStatus: 'Freehold',
     leaseYearsLeft: null,
-    image: '/landing/assets/img/other/best-selling-thumb.png',
+    image: 'landing/assets/img/other/best-selling-thumb.png',
     exclusive: true,
   },
   {
@@ -75,7 +75,7 @@ export const featuredProperties = [
     landSize: 280,
     legalStatus: 'Leasehold',
     leaseYearsLeft: 30,
-    image: '/landing/assets/img/other/best-selling-thumb2.png',
+    image: 'landing/assets/img/other/best-selling-thumb2.png',
     exclusive: false,
   },
   {
@@ -90,7 +90,7 @@ export const featuredProperties = [
     landSize: 600,
     legalStatus: 'Leasehold',
     leaseYearsLeft: 28,
-    image: '/landing/assets/img/other/best-selling-thumb3.png',
+    image: 'landing/assets/img/other/best-selling-thumb3.png',
     exclusive: true,
   },
 ]

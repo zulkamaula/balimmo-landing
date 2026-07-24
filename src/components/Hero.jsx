@@ -13,9 +13,9 @@ export default function Hero() {
         muted
         playsInline
         loop
-        poster="/landing/assets/img/banner/video-fallback.png"
+        poster="landing/assets/img/banner/video-fallback.png"
       >
-        <source src="/landing/assets/img/banner/video-bg.mp4" type="video/mp4" />
+        <source src="landing/assets/img/banner/video-bg.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay */}

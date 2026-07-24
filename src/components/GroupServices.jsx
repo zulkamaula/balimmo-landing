@@ -13,7 +13,7 @@ export default function GroupServices() {
             </p>
           </div>
           <img
-            src="/landing/assets/img/other/balimmo-group-services.png"
+            src="landing/assets/img/other/balimmo-group-services.png"
             alt="Balimmo group services"
             className="h-auto w-full lg:w-1/2"
           />

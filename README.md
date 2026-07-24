@@ -22,7 +22,7 @@ npm run preview  # preview the production build
 ## Structure
 
 ```
-public/landing/assets/img/   real logos, invest images, section images + hero video (copied faithfully)
+publiclanding/assets/img/   real logos, invest images, section images + hero video (copied faithfully)
 src/
   main.jsx                   React entry
   App.jsx                    composes all page sections in order

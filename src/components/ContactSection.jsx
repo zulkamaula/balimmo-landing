@@ -13,7 +13,7 @@ export default function ContactSection() {
               Book a free consultation with our experts and let us find your dream villa together.
             </p>
             <img
-              src="/landing/assets/img/other/contact-us-thumb.avif"
+              src="landing/assets/img/other/contact-us-thumb.avif"
               alt="Let our team guide you"
               className="mx-auto h-auto w-full rounded-lg object-cover lg:mx-0"
             />

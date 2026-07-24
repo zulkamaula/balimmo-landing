@@ -18,7 +18,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#top" className="flex items-center" aria-label="Balimmo home">
           <img
-            src="/landing/assets/img/logo/nav-logo.png"
+            src="landing/assets/img/logo/nav-logo.png"
             alt="Balimmo"
             className="w-[130px] sm:w-[190px]"
           />

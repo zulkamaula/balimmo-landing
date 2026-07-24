@@ -13,7 +13,7 @@ export default function HowItWorks() {
 
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-16">
           <img
-            src="/landing/assets/img/other/how-it-works.png"
+            src="landing/assets/img/other/how-it-works.png"
             alt="How it works"
             className="h-auto w-full lg:w-1/2"
           />

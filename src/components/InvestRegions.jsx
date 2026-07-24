@@ -3,19 +3,19 @@ const REGIONS = [
     name: 'Uluwatu',
     roi: 'ROI >11% net',
     desc: 'Luxury ocean-view villas | Resort growth',
-    image: '/landing/assets/img/invest/invest-1.png',
+    image: 'landing/assets/img/invest/invest-1.png',
   },
   {
     name: 'Canggu',
     roi: 'ROI >10% net',
     desc: 'High demand from expats & digital nomads',
-    image: '/landing/assets/img/invest/invest-2.png',
+    image: 'landing/assets/img/invest/invest-2.png',
   },
   {
     name: 'Ubud',
     roi: 'ROI >10% net',
     desc: 'Wellness tourism | Long-stay rentals',
-    image: '/landing/assets/img/invest/invest-3.png',
+    image: 'landing/assets/img/invest/invest-3.png',
   },
 ]
 
